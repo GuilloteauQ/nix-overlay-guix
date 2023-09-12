@@ -14,6 +14,6 @@ in
     scheme-bytestructures = guilePackages.bytestructures;
 
     guix = callPackage ./guix.nix { buildGuileModule = guilePackages.buildGuileModule; };
-    guix_binary_1_3_0 = callPackage ./guix-binary { };
+    guix_binary_1_4_0 = callPackage ./guix-binary { };
   }
 )
