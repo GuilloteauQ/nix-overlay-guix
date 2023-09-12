@@ -10,9 +10,9 @@
 
       lib = nixpkgs.lib;
 
-      binaryInstallationDeprecationMsg = (
-        "Binary installation is deprecated and will be removed in 4 years"
-        + " after Guix 1.4.0 is released.");
+#      binaryInstallationDeprecationMsg = (
+#        "Binary installation is deprecated and will be removed in 4 years"
+#        + " after Guix 1.4.0 is released.");
     in
     {
       overlays = {
@@ -30,8 +30,8 @@
 
       nixosModules = {
         guix = import ./modules/nixos/guix.nix;
-        guix-binary = lib.warn
-          binaryInstallationDeprecationMsg
+        guix-binary = #lib.warn
+#          binaryInstallationDeprecationMsg
           import ./modules/nixos/guix-binary.nix;
       };
 

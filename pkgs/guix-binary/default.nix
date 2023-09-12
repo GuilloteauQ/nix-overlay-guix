@@ -9,9 +9,9 @@ stdenv.mkDerivation rec {
     url =
       "https://ftp.gnu.org/gnu/guix/guix-binary-${version}.${stdenv.targetPlatform.system}.tar.xz";
     sha256 = {
-      "x86_64-linux" = "";
-      "i686-linux" = "";
-      "aarch64-linux" = "";
+      "x86_64-linux" = "1jfr1rkbzm26dmy3rkxln6ydwvwxpk2zq919dhwiz2wmqp4sfv13";
+      "i686-linux" = "0bfh1w2nhcykqzz9h3m2cyzgawxwy5digggfjkprg0182zlj8q8y";
+      "aarch64-linux" = "1x7wxc41w41is6zsfblln3k5b595bb2355pcnx09k4c950whgn3j";
     }."${stdenv.targetPlatform.system}";
   };
   sourceRoot = ".";

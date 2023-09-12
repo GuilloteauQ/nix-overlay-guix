@@ -53,8 +53,8 @@ in
 
     package = mkOption {
       type = types.package;
-      default = pkgs.guix_binary_1_3_0;
-      defaultText = "pkgs.guix-binary_1_3_0";
+      default = pkgs.guix_binary_1_4_0;
+      defaultText = "pkgs.guix-binary_1_4_0";
       description =
         "Package that contains the binary installation files from Guix.";
     };
