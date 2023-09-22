@@ -90,6 +90,7 @@ buildGuileModule rec {
     locale
     perlPackages.Po4a
   ];
+  enableParallelBuilding = true;
 
   configureFlags = [
     "--with-store-dir=${storeDir}"
