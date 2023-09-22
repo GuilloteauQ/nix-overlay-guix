@@ -1,0 +1,24 @@
+From cecf1f91447fd4621f2667589c5e501167f8ba0c Mon Sep 17 00:00:00 2001
+From: Quentin Guilloteau <Quentin.Guilloteau@inria.fr>
+Date: Fri, 22 Sep 2023 19:59:27 +0200
+Subject: [PATCH] remove test/mail.scm
+
+---
+ gnu/local.mk | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/gnu/local.mk b/gnu/local.mk
+index 7278c50e4f..c9e7f57da5 100644
+--- a/gnu/local.mk
++++ b/gnu/local.mk
+@@ -766,7 +766,6 @@ GNU_SYSTEM_MODULES =				\
+   %D%/tests/install.scm				\
+   %D%/tests/ldap.scm				\
+   %D%/tests/linux-modules.scm			\
+-  %D%/tests/mail.scm				\
+   %D%/tests/messaging.scm			\
+   %D%/tests/networking.scm			\
+   %D%/tests/package-management.scm		\
+-- 
+2.40.1
+

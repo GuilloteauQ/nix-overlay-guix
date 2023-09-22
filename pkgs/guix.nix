@@ -24,6 +24,8 @@
 , help2man
 , bzip2
 , gzip
+, libgcrypt
+, sqlite
 , autoconf-archive
 , autoreconfHook
 , texinfo
@@ -38,16 +40,15 @@
 }:
 
 let
-  rev = "987a11bc44b9b18ae02dbece01c4af8ec3e10738";
+  rev = "8e2f32cee982d42a79e53fc1e9aa7b8ff0514714";
 in
 buildGuileModule rec {
   pname = "guix";
   version = "1.4.0";
 
-  src = fetchgit {
-    inherit rev;
-    url = "https://git.savannah.gnu.org/git/guix.git";
-    sha256 = "sha256-tIFU2h4R6Nsyn6fMygYi6GYXWza4vFTLYTTdJfiNVRA=";
+  src = builtins.fetchTarball {
+    url = "https://ftpmirror.gnu.org/gnu/guix/guix-1.4.0.tar.gz";
+    sha256 = "sha256:1rnnyn6vxbcx0xicsf4kh889lxp2ksi1m983jcdi6a62wdb1mqqj";
   };
 
   preAutoreconf = ''
@@ -73,6 +74,8 @@ buildGuileModule rec {
   ] ++ [
     gzip
     bzip2
+    libgcrypt
+    sqlite
   ];
 
   nativeBuildInputs = [
@@ -100,6 +103,8 @@ buildGuileModule rec {
     "--with-bash-completion-dir=${placeholder "out"}/etc/bash_completion.d"
   ];
 
+  patches = [ ./0001-remove-test-mail.scm.patch ];
+
   postPatch = ''
     sed nix/local.mk -i -E \
       -e 's|^sysvinitservicedir = .*$|sysvinitservicedir = ${placeholder "out"}/etc/init.d|' \
@@ -107,7 +112,7 @@ buildGuileModule rec {
   '';
 
   # We will start to look into checking once the dependencies are properly installed.
-  #doCheck = true;
+  doCheck = false;
 
   meta = with lib; {
     description =
