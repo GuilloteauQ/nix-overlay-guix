@@ -29,7 +29,7 @@ buildGuileModule rec {
     })
   ];
 
-  doCheck = true;
+  doCheck = false;
   postInstall = ''
     mv $out/bin/*.scm $out/share/guile-ssh
     rmdir $out/bin

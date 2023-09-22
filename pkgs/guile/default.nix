@@ -1,4 +1,4 @@
-{ lib, newScope, guile_3_0, gnutls, lzlib, guile-lib, overrides ? (self: super: { }) }:
+{ lib, newScope, guile_3_0, lzlib, guile-lib, overrides ? (self: super: { }) }:
 
 let
   packages = self:
@@ -6,10 +6,11 @@ let
       callPackage = newScope self;
       guile = guile_3_0;
 
-      guile-gnutls = (gnutls.override {
-        inherit guile;
-        guileBindings = true;
-      });
+      # guile-gnutls = (gnutls.override {
+      #   # inherit guile;
+      #   # guileBindings = true;
+      # });
+      # guile-gnutls = guile-gnutls;
 
       lzlibShared = lzlib.overrideAttrs (prev: {
         configureFlags = [
@@ -18,7 +19,7 @@ let
       });
     in
     lib.recurseIntoAttrs {
-      inherit guile-gnutls;
+      # inherit guile-gnutls;
       buildGuileModule = callPackage ./build-guile-module.nix { inherit guile; };
       bytestructures = callPackage ./bytestructures { };
       disarchive = callPackage ./disarchive { };

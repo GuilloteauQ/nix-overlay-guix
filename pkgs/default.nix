@@ -8,9 +8,10 @@ lib.fix (self: let
 in
   rec {
     inherit (guilePackages)
-      disarchive guile-gnutls guile-gcrypt guile-git guile-json guile-sqlite3
+      disarchive guile-gcrypt guile-git guile-json guile-sqlite3
       guile-lzlib guile-lzma guile-zlib guile-ssh guile-zstd guile-semver
       guile-avahi guile3-lib guile-quickcheck;
+    # inherit guile-gnutls;
     scheme-bytestructures = guilePackages.bytestructures;
 
     guix = callPackage ./guix.nix { buildGuileModule = guilePackages.buildGuileModule; };
