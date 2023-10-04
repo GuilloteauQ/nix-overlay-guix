@@ -43,6 +43,12 @@
           };
         in {
           default = import ./shell.nix { inherit pkgs; };
+          nuix = pkgs.mkShell {
+            packages = [ pkgs.guix ];
+            shellHook = ''
+                trap "sudo guix-daemon > .guix-daemon.log; exit" SIGINT
+            '';
+          };
         });
 
       formatter = forAllSystems (system:

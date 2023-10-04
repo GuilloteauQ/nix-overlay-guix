@@ -2,6 +2,7 @@
 # nixpkgs here.
 # Much of the code is based from Python's setup hooks.
 guileWrapperArgs=()
+guileVersion="3.0"
 
 # This is usually called before wrapping up an output directory. Take note it
 # accepts a directory to check before adding the wrapper arguments. We're
